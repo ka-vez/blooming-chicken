@@ -1,0 +1,594 @@
+/* ===========================
+   BLOOMING CHICKEN — STYLE.CSS
+   =========================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #f6f5f5;
+  color: #333;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+/* Site logo (used in header) */
+.site-logo {
+  height: 150px;
+  width: 150px;
+  margin-right: 20px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* ===========================
+   HEADER
+   =========================== */
+header {
+  background: linear-gradient(135deg, #ffb300, #ff7f50);
+  color: #fff;
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.5rem;
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #fff;
+  text-transform: uppercase;
+  text-shadow: 1px 2px 5px rgba(0,0,0,0.2);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.site-title {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 1rem;
+  font-weight: 500;
+  position: relative;
+  transition: 0.3s;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #fff;
+  transition: 0.3s ease-in-out;
+}
+
+nav a:hover::after,
+nav a.active::after {
+  width: 100%;
+}
+
+.hero {
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)),
+  url("../image/background\ picture.jpg") center/cover no-repeat;
+
+  color: #fff;
+  text-align: center;
+  padding: 8rem 2rem;
+  border-radius: 0 0 50% 50% / 0 0 10% 10%;
+  box-shadow: inset 0 0 50px rgba(0,0,0,0.3);
+  animation: fadeInHero 2s ease-in;
+  background-attachment: fixed; /* subtle parallax */
+  transition: all 0.5s ease;
+}
+
+/* Hero text */
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: auto;
+  line-height: 1.8;
+}
+
+.hero .btn {
+  background: #ffb300;
+  color: #fff;
+  padding: 0.9rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 8px 20px rgba(255, 165, 0, 0.3);
+  transition: 0.3s ease;
+}
+
+.hero .btn:hover {
+  background: #ff7f50;
+  transform: translateY(-3px);
+}
+
+/* WHY CHOOSE US SECTION */
+h2 {
+  text-align: center;
+  color: #ff7b00;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.highlight-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  padding: 20px;
+  justify-content: center;
+}
+
+.highlight-card {
+  background: #fff;
+  border-radius: 15px;
+  padding: 30px 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.highlight-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+.highlight-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border-radius: 50%;
+}
+
+.highlight-card h3 {
+  color: #ff7b00;
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+
+.highlight-card p {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+
+/* ===========================
+   MEALS
+   =========================== */
+.meals {
+  background: #fffaf2;
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.meals h2 {
+  color: #ff7f50;
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+}
+
+.meal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.meal-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.4s ease;
+}
+
+.meal-card:hover {
+  transform: scale(1.05);
+}
+
+.meal-card img {
+  width: 100%;
+  border-radius: 15px;
+  height: 180px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+/* ==== SPECIAL BUNDLES SECTION ==== */
+h2 {
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 2.2rem;
+  color: #ff6f61;
+  margin-top: 60px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: #ffd1c1;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* Bundle grid layout */
+.bundle-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 20px 50px;
+  justify-content: center;
+}
+
+/* Individual cards */
+.bundle-card {
+  background: #fffaf5;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  text-align: center;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  border: 1px solid #ffe5d1;
+}
+
+.bundle-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(255, 165, 130, 0.2);
+}
+
+/* Image styling */
+.bundle-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  border-bottom: 1px solid #ffe5d1;
+}
+
+.bundle-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Text styling */
+.bundle-card h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.4rem;
+  color: #ff6f61;
+  margin-top: 15px;
+}
+
+.bundle-card p {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.95rem;
+  color: #555;
+  padding: 0 20px 25px;
+  line-height: 1.6;
+}
+
+/* Soft animation on scroll */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.bundle-card {
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.bundle-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.bundle-card:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.bundle-card:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  h2 {
+    font-size: 1.8rem;
+  }
+  .bundle-card img {
+    height: 180px;
+  }
+  .bundle-grid {
+    padding: 10px 20px;
+  }
+}
+.special-bundles {
+  background: linear-gradient(180deg, #fff8f4, #ffece2);
+  padding: 60px 0;
+}
+
+
+/* ===========================
+   CTA SECTION
+   =========================== */
+.cta {
+  background: linear-gradient(135deg, #ffb300, #ff7f50);
+  text-align: center;
+  padding: 5rem 2rem;
+  color: #fff;
+}
+
+.cta h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.cta a {
+  display: inline-block;
+  background: #fff;
+  color: #ff7f50;
+  text-decoration: none;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 700;
+  transition: 0.3s ease;
+}
+
+.cta a:hover {
+  background: #ffb300;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* ===========================
+   SCROLL ANIMATIONS
+   =========================== */
+.fade {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+
+.fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===========================
+   ANIMATIONS
+   =========================== */
+@keyframes fadeInHero {
+  from { opacity: 0; transform: scale(1.05); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ===========================
+   RESPONSIVE DESIGN
+   =========================== */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .hero h2 {
+    font-size: 2.2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+}
+
+/* Smaller screens: reduce logo and title sizes so header fits */
+@media (max-width: 600px) {
+  .site-logo {
+    width: 90px;
+    height: 90px;
+    margin-right: 10px;
+  }
+
+  .site-title {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  header h1 {
+    justify-content: center;
+  }
+
+  nav a {
+    margin: 0 0.6rem;
+    padding: 0.25rem 0.4rem;
+    font-size: 0.95rem;
+  }
+}
+
+
+/* ===== HERO SECTION ===== */
+.hero {
+  background: linear-gradient(rgba(255,140,0,0.6), rgba(255,140,0,0.3)), 
+ url("../image/background\ picture.jpg") center/cover no-repeat;
+  background-attachment: fixed; /* subtle parallax */
+  color: var(--white);
+  text-align: center;
+  padding: 8rem 2rem;
+  position: relative;
+  animation: fadeIn 2s ease;
+  transition: all 0.5s ease;
+}
+
+.hero h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 25px rgba(0,0,0,0.6);
+  animation: slideUp 1.2s ease;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 1rem auto 2rem;
+  line-height: 1.8;
+}
+
+.hero .btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  border-radius: 30px;
+  background: var(--primary);
+  color: var(--white);
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 15px var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.hero .btn:hover {
+  background: #ff9f1c;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px var(--shadow-strong);
+}
+/* ===== VARIABLES ===== */
+:root {
+  --primary: #ff8c00; /* Vibrant Gold/Orange */
+  --secondary: #fff3e0; /* Soft Cream */
+  --accent: #fffdf8; /* Background */
+  --text: #333;
+  --white: #fff;
+  --shadow: rgba(0,0,0,0.15);
+  --shadow-strong: rgba(0,0,0,0.25);
+  --highlight-bg: #fff8e1; /* Highlight card background */
+  --cta-bg: #ff8c00;
+  --cta-hover: #e67600;
+}
+
+/* HEADER */
+header {
+  background: linear-gradient(to right, #ff8c00, #ffb84d);
+  color: var(--white);
+  padding: 1rem 3rem;
+  border-bottom: 2px solid #ffb84d;
+}
+
+header h1 {
+  color: var(--white);
+}
+
+nav a {
+  color: var(--white);
+}
+
+nav a.active,
+nav a:hover {
+  color: var(--secondary);
+}
+
+/* HERO */
+.hero {
+  background: linear-gradient(rgba(8, 8, 8, 0.6), rgba(255,140,0,0.3)), 
+  url("../image/Saturday\ hustle\,\ but\ make\ it\ delicious!\ \ Another….jpg") center/cover no-repeat;
+  color: var(--white);
+}
+
+.hero .btn {
+  background: var(--secondary);
+  color: var(--primary);
+}
+
+.hero .btn:hover {
+  background: #ffe0b2;
+  color: var(--primary);
+  transform: translateY(-3px);
+}
+
+/* HIGHLIGHTS CARDS */
+.highlight-card {
+  background: var(--highlight-bg);
+}
+
+/* MEAL CARDS */
+.meal-card {
+  border: 2px solid #ff8c00;
+}
+
+/* BUNDLE CARDS */
+.bundle-card {
+  border: 2px solid #ffb84d;
+}
+
+/* CTA */
+.cta {
+  background: var(--cta-bg);
+  color: var(--white);
+}
+
+.cta a {
+  background: var(--white);
+  color: var(--primary);
+}
+
+.cta a:hover {
+  background: var(--cta-hover);
+  color: var(--white);
+}
+
+/* FOOTER */
+footer {
+  background: #333;
+  color: #fff;
+}
+
+footer a {
+  color: #ffb84d;
+}
+
+/* ===== ADDITIONAL STYLES ===== */

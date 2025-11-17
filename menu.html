@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Menu - Blooming Chicken</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  * {margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif;}
+  body {background: linear-gradient(to bottom, #fff8e5, #fff2d0); color:#333; overflow-x:hidden; position:relative;}
+
+  /* HEADER */
+  header {
+    width:100%;
+    background: linear-gradient(90deg,#ffb84d,#ff8c00);
+    padding:1rem 0;
+    text-align:center;
+    position:fixed;
+    top:0;
+    z-index:1000;
+    box-shadow:0 5px 20px rgba(0,0,0,0.2);
+  }
+  header a {color:#fff; text-decoration:none; margin:0 1.5rem; font-weight:500; transition:0.3s;}
+  header a:hover, header a.active {color:#fff7d2; text-shadow:1px 1px 5px rgba(0,0,0,0.3);}
+
+  /* HERO */
+  .hero {
+    height: 60vh;
+    background: linear-gradient(rgba(255,184,77,0.6), rgba(58, 12, 12, 0.6)),
+      url("image/coconut\ rice.PNG") center/cover no-repeat;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:#fff;
+    margin-top:4rem;
+    border-radius: 0 0 50% 50% / 0 0 15% 15%;
+    box-shadow: inset 0 0 60px rgba(0,0,0,0.4);
+    animation: fadeIn 1.5s ease-in-out;
+    position: relative;
+    overflow:hidden;
+  }
+  .hero h1 {
+    font-size:3rem;
+    text-shadow: 2px 2px 15px rgba(0,0,0,0.6);
+    animation: slideUp 1.2s ease-in-out;
+    z-index:2;
+    position:relative;
+  }
+
+  /* FLOATING ICONS */
+  .float-icon {
+    position:absolute;
+    width:50px;
+    opacity:0.8;
+    animation: floatUp linear infinite;
+  }
+  @keyframes floatUp {
+    0% { transform: translateY(100%) rotate(0deg);}
+    50% { transform: translateY(-50%) rotate(180deg);}
+    100% { transform: translateY(-150%) rotate(360deg);}
+  }
+
+  /* FILTER BAR */
+  .filter-bar {
+    display:flex;
+    justify-content:center;
+    gap:1rem;
+    flex-wrap:wrap;
+    margin:2rem 0;
+  }
+  .filter-btn {
+    background: transparent;
+    border:2px solid #ffb84d;
+    color:#ff8c00;
+    padding:0.7rem 1.5rem;
+    border-radius:30px;
+    cursor:pointer;
+    transition:0.4s ease;
+    font-weight:600;
+    box-shadow: 0 0 10px rgba(255,184,77,0.2);
+  }
+  .filter-btn.active, .filter-btn:hover {
+    background:#ffb84d; color:#fff;
+    box-shadow:0 0 20px rgba(255,184,77,0.6);
+    transform: scale(1.05);
+  }
+
+  /* MENU SECTION */
+  .menu-section {
+    padding:4rem 2rem;
+    text-align:center;
+    max-width:1200px;
+    margin:auto;
+    position:relative;
+  }
+  .menu-section h1 {
+    font-size:2.5rem;
+    color:#ff8c00;
+    margin-bottom:2rem;
+    letter-spacing:1px;
+    text-shadow: 0 0 10px rgba(255,184,77,0.4);
+  }
+  .menu-grid {
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap:2rem;
+  }
+  .menu-card {
+    background: linear-gradient(to bottom right, rgba(255,248,240,0.95), rgba(255,240,220,0.95));
+    border-radius:20px;
+    padding:2rem 1.5rem;
+    transition:0.4s ease;
+    border: 1px solid rgba(255,184,77,0.3);
+    box-shadow: 0 10px 25px rgba(255,184,77,0.2);
+    position: relative;
+    overflow:hidden;
+    animation: fadeUp 1s ease forwards;
+  }
+  .menu-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(255,140,0,0.5);
+    border-color: rgba(255,140,0,0.5);
+  }
+  .menu-card h2 {
+    color:#ff8c00;
+    margin-bottom:1rem;
+    font-size:1.5rem;
+    border-bottom: 2px solid #ffb84d;
+    display:inline-block;
+    padding-bottom:5px;
+  }
+  .menu-card ul { list-style:none; text-align:left; padding-top:1rem; }
+  .menu-card li {
+    font-size:1rem;
+    color:#555;
+    margin:10px 0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    transition:0.3s;
+  }
+  .menu-card li:hover { color:#ff8c00; transform: translateX(6px); }
+  .menu-card span {
+    color:#ffb84d;
+    font-weight:600;
+    background: rgba(255,184,77,0.2);
+    padding:3px 10px;
+    border-radius:10px;
+  }
+
+  /* BACK TO TOP BUTTON */
+  #backToTop {
+    position:fixed;
+    bottom:30px;
+    right:30px;
+    background:#ffb84d;
+    color:#000;
+    border:none;
+    border-radius:50%;
+    width:50px;
+    height:50px;
+    font-size:1.2rem;
+    cursor:pointer;
+    box-shadow:0 0 20px rgba(255,184,77,0.5);
+    display:none;
+    transition:0.4s ease;
+  }
+  #backToTop:hover { transform: translateY(-4px) scale(1.1); box-shadow:0 0 30px rgba(255,184,77,0.8); }
+
+  /* FOOTER */
+  footer {
+    text-align:center;
+    padding:2rem 0;
+    background: linear-gradient(90deg, #ff8c00, #ffb84d);
+    color:#fff;
+    font-size:0.9rem;
+    margin-top:4rem;
+    border-top:1px solid rgba(255,255,255,0.3);
+    box-shadow:0 -5px 15px rgba(255,140,0,0.3);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+  @keyframes slideUp { from { transform: translateY(40px); opacity:0; } to { transform: translateY(0); opacity:1; } }
+  @keyframes fadeUp { from { opacity:0; transform:translateY(30px);} to { opacity:1; transform:translateY(0);} }
+
+  @media(max-width:768px){ .hero h1{ font-size:2rem; } .filter-btn{ padding:0.6rem 1rem; font-size:0.9rem; } }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html">Home</a>
+   <a href="menu.html" class="active">Menu</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</header>
+
+<section class="hero">
+  <h1>Our Delicious Menu</h1>
+  <!-- Floating icons -->
+  <img src="https://i.ibb.co/fYtFb9g/chicken.png" class="float-icon" style="left:10%; width:40px; animation-duration:12s;">
+  <img src="https://i.ibb.co/fYtFb9g/chicken.png" class="float-icon" style="left:30%; width:50px; animation-duration:10s;">
+  <img src="https://i.ibb.co/fYtFb9g/chicken.png" class="float-icon" style="left:50%; width:35px; animation-duration:15s;">
+  <img src="https://i.ibb.co/fYtFb9g/chicken.png" class="float-icon" style="left:70%; width:45px; animation-duration:13s;">
+  <img src="https://i.ibb.co/fYtFb9g/chicken.png" class="float-icon" style="left:85%; width:30px; animation-duration:11s;">
+</section>
+
+<div class="filter-bar">
+  <button class="filter-btn active" data-category="all">All</button>
+  <button class="filter-btn" data-category="rice">Rice</button>
+  <button class="filter-btn" data-category="snacks">Snacks</button>
+  <button class="filter-btn" data-category="extras">Extras</button>
+  <button class="filter-btn" data-category="proteins">Proteins</button>
+  <button class="filter-btn" data-category="combos">Combos</button>
+  <button class="filter-btn" data-category="drinks">Drinks</button>
+</div>
+
+<section class="menu-section">
+  <h1>Explore Our Taste</h1>
+  <div class="menu-grid">
+
+    
+    <!-- RICE -->
+    <div class="menu-card" data-category="rice">
+      <h2>🍚 SPECIAL RICE</h2>
+      <ul>
+        <li>Asun Fried Rice Full Plate <span>₦3,900</span></li>
+        <li>Asun Fried Rice Half Plate <span>₦2,600</span></li>
+        <li>Jollof Rice Full Plate <span>₦3,500</span></li>
+        <li>Jollof Rice Half Plate <span>₦2,000</span></li>
+        <li>Coconut Rice Full Plate <span>₦3,500</span></li>
+        <li>Coconut Rice Half Plate <span>₦2,000</span></li>
+        <li>Banga Rice Full Plate <span>₦3,500</span></li>
+        <li>Banga Rice Half Plate <span>₦2,000</span></li>
+        <li>Fried Rice Full Plate <span>₦3,900</span></li>
+        <li>Fried Rice Half Plate <span>₦2,600</span></li>
+        <li>Suya Rice Full Plate <span>₦3,500</span></li>
+        <li>Suya Rice Half Plate <span>₦2,000</span></li>
+      </ul>
+    </div>
+
+    <!-- SNACKS -->
+    <div class="menu-card" data-category="snacks">
+      <h2>🥯 SNACKS</h2>
+      <ul>
+        <li>Chicken Burger <span>₦2,000</span></li>
+        <li>Hot Dog Roll <span>₦1,000</span></li>
+        <h6>(Chicken Frank)</h6>
+        <li>Meat Pie <span>₦2,000</span></li>
+        <li>Doughnut <span>₦1,000</span></li>
+        <li>Chicken Roll <span>₦1,500</span></li>
+        <li>Sausage Roll <span>₦1,000</span></li>
+        <li>Meat Roll <span>₦1,500</span></li>
+      </ul>
+    </div>
+
+    <!-- PROTEINS -->
+    <div class="menu-card" data-category="proteins">
+      <h2>🍗 PROTEINS</h2>
+      <ul>
+        <li>Titus Fish (Tail) <span>₦3,300</span></li>
+        <li>Titus Fish (Middle) <span>₦3,000</span></li>
+        <li>BBQ Glaza Chicken (Big) <span>₦3,500</span></li>
+        <li>BBQ Glaza Chicken (Small) <span>₦3,000</span></li>
+        <li>Deep Fried Chicken (Big) <span>₦3,500</span></li>
+        <li>Deep Fried Chicken (Small) <span>₦1,600</span></li>
+        <li>Peppered Chicken (Big) <span>₦3,500</span></li>
+        <li>Peppered Chicken (Small) <span>₦1,600</span></li>
+        <li>Beef Kebab <span>₦2,000</span></li>
+      </ul>
+    </div>
+
+    <!-- COMBOS -->
+    <div class="menu-card" data-category="combos">
+      <h2>🥡 COMBOS</h2>
+      <ul>
+        <li>Chow_Down Town <span>₦4,600</span></li>
+        <h6>(Coconut,Fried, Chicken & Coleslaw)</h6>
+        <li>Enjoy It... <span>₦4,450</span></li>
+        <h6>(Coconut, Jollof, Chicken & Coleslaw)</h6>
+        <li>Let's Try... <span>₦4,600</span></li>
+        <h6>(Fried, Jollof, Chicken & Coleslaw)</h6>
+        <li>On It... <span>₦4,600</span></li>
+        <h6>(Asun Jollof, Fried, Chicken & Coleslaw)</h6>
+        <li>I Love It... <span>₦4,550</span></li>
+        <h6>(Suya Rice, Jollof, Chicken & Coleslaw)</h6>
+      </ul>
+    </div>
+
+   <!-- EXTRAS -->
+<div class="menu-card" data-category="sides">
+  <h2>🥤E X T R A S</h2>
+  <ul>
+    <li>Plain Moi Moi <span>₦1,200</span></li>
+    <li>Egg Moi Moi <span>₦1,700</span></li>
+    <li>Coleslaw <span>₦550</span></li>
+    <li>Plantain <span>₦500</span></li>
+  </ul>
+</div>
+<!-- DRINKS -->
+    <div class="menu-card" data-category="drinks">
+      <h2>🥤 DRINKS</h2>
+      <ul>
+        <li>Ribena <span>₦1,600</span></li>
+        <li>Yoghurt <span>₦3,500</span></li>
+        <li>Nutri Milk Drinks <span>₦1,100</span></li>
+        <li>Fayrouz Can <span>₦900</span></li>
+        <li>Fayrouz pet <span>₦850</span></li>
+        <li>Fresh Juice <span>₦3,900</span></li>
+        <li>Coca Cola Can <span>₦850</span></li>
+        <li>7up 35cl <span>₦850</span></li>
+        <li>Pepsi/ Team 50cl <span>₦700</span></li>
+        <li>Schweppes Can <span>₦950</span></li>
+        <li>Schweppes Pet <span>₦850</span></li>
+        <li>Sprite <span>₦550</span></li>
+        <li>Fanta 35cl <span>₦550</span></li>
+        <li>Malt Can <span>₦1,000</span></li>
+        <li>Malt Pet <span>₦1,000</span></li>
+        <li>Ultra Malt <span>₦1,200</span></li>
+        <li>Water <span>₦350</span></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<button id="backToTop">↑</button>
+<footer>© 2025 Blooming Chicken — Crafted with ❤️ in Abuja.</footer>
+
+<script>
+  // Filter
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const menuCards = document.querySelectorAll('.menu-card');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', ()=>{
+      filterBtns.forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      const category = btn.dataset.category;
+      menuCards.forEach(card=>{
+        card.style.display = category==='all' || card.dataset.category===category ? 'block':'none';
+      });
+    });
+  });
+
+  // Back to top
+  const topBtn = document.getElementById('backToTop');
+  window.onscroll = ()=> topBtn.style.display = (window.scrollY>300)?'block':'none';
+  topBtn.onclick = ()=> window.scrollTo({top:0, behavior:'smooth'});
+</script>
+</body>
+</html>
